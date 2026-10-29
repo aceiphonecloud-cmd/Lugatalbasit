@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arabcha lugʻat takrori</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f4;--card:#fff;--ink:#12302f;--mut:#5d7472;--acc:#0f5c58;--acc-t:#fff;--gold:#d9a21b;--ok:#1f8a54;--okb:#dff3e8;--bad:#c13b2a;--badb:#fbe3df;--line:#d5e0de}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a1a;--card:#162626;--ink:#e6f0ee;--mut:#93aaa7;--acc:#4cc2b8;--acc-t:#08201e;--gold:#e8b93a;--ok:#5fd394;--okb:#17372a;--bad:#ff8a78;--badb:#3b1d19;--line:#284240}}
+:root[data-theme="dark"]{--bg:#0e1a1a;--card:#162626;--ink:#e6f0ee;--mut:#93aaa7;--acc:#4cc2b8;--acc-t:#08201e;--gold:#e8b93a;--ok:#5fd394;--okb:#17372a;--bad:#ff8a78;--badb:#3b1d19;--line:#284240}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:520px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 2px}
+.sub{color:var(--mut);margin:0 0 14px;font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip,.btn{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 14px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--acc);color:var(--acc-t);border-color:var(--acc)}
+.btn{border-radius:12px;padding:14px;font-size:16px;font-weight:600;width:100%}
+.btn.p{background:var(--acc);color:var(--acc-t);border-color:var(--acc)}
+.lab{font-size:13px;color:var(--mut);margin:14px 0 2px}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .25s}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 16px;text-align:center;margin-bottom:12px}
+.ar{font-family:"Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;font-size:44px;line-height:1.5;direction:rtl}
+.uz{font-size:26px;font-weight:600}
+.meta{font-size:13px;color:var(--mut);margin-top:6px}
+.opt{display:block;width:100%;text-align:center;margin:8px 0;padding:14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:18px;cursor:pointer}
+.opt.arb{font-family:"Noto Naskh Arabic","Geeza Pro",serif;font-size:26px;direction:rtl}
+.opt.ok{background:var(--okb);border-color:var(--ok)}
+.opt.no{background:var(--badb);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.res{text-align:center;padding:20px 0}
+.big{font-size:56px;font-weight:700;color:var(--acc)}
+.wl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px;margin:10px 0;text-align:left}
+.wl div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.wl div:last-child{border:0}
+.wl .ar{font-size:24px;line-height:1.3}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.link{background:none;border:0;color:var(--acc);font:inherit;cursor:pointer;padding:6px}
+
+main{padding-bottom:88px}
+#nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+#nav button{flex:1;border:0;background:none;color:var(--mut);font:inherit;font-weight:600;padding:14px 0;cursor:pointer}
+#nav button[aria-pressed="true"]{color:var(--acc);box-shadow:inset 0 3px 0 var(--gold)}
+.book,.unit{display:flex;flex-direction:column;gap:4px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin:8px 0;font:inherit;cursor:pointer}
+.unit{padding:10px 14px;gap:2px;flex-direction:row;flex-wrap:wrap;justify-content:space-between}
+.unit .bar{flex-basis:100%;margin:4px 0 0}
+.unit[aria-pressed="true"]{border-color:var(--acc);background:var(--okb)}
+.book .ar{font-size:32px;line-height:1.4}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.st{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.st b{display:block;font-size:26px;color:var(--acc)}
+input#nm{font:inherit;font-size:20px;font-weight:700;width:100%;border:0;border-bottom:2px solid var(--line);background:none;color:var(--ink);padding:6px 0;margin-bottom:6px}
+.lv{background:var(--acc);color:var(--acc-t);border-radius:16px;padding:16px;margin:10px 0}
+.lv .bar{background:rgba(255,255,255,.3)}.lv .bar i{background:var(--gold)}
+.pu{font-size:14px;margin:8px 0 0;display:flex;justify-content:space-between}
+.fb{text-align:center;color:var(--ok);font-weight:600;min-height:22px}
+
+:root,:root[data-theme]{--bg:#0b1a11;--card:#13271b;--line:#244230;--ink:#eaf5ec;--mut:#8fae99;--acc:#8cf06e;--acc-t:#0b1a11;--gold:#8cf06e;--okb:#1c3a28;--ok:#8cf06e;--no:#ff7a6b;color-scheme:dark}
+html,body{background:#0b1a11;color:#eaf5ec}
+#nav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));border:1px solid var(--line);border-radius:26px;padding:6px;gap:6px;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+#nav button{display:flex;flex-direction:column;align-items:center;gap:2px;border-radius:20px;padding:8px 0;font-size:12px;box-shadow:none!important}
+#nav button[aria-pressed="true"]{background:#2a4434;color:#fff}
+#nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero{background:linear-gradient(145deg,#2f6a38,#16341f);border:1px solid #3d7a45;border-radius:26px;padding:18px;margin:6px 0 14px}
+.hr{display:flex;gap:16px;align-items:center}
+.av{width:84px;height:84px;border-radius:50%;flex:none;display:grid;place-items:center;padding:6px}
+.av i{width:100%;height:100%;border-radius:50%;background:#0b1a11;display:grid;place-items:center;font:700 34px/1 system-ui;font-style:normal;color:var(--acc)}
+.pill{display:inline-block;background:rgba(255,255,255,.14);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:700;margin:6px 6px 0 0}
+.xpt{font-size:14px;color:#cfe6d3;margin-top:8px}
+.tri{display:flex;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.tri div{flex:1;text-align:center;font-size:13px;color:#cfe6d3}
+.tri b{display:block;font-size:26px;color:#fff}
+.c2{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0}
+.c2 .k{font-size:12px;letter-spacing:.08em;font-weight:700;color:var(--acc)}
+.c2 .n{font-size:34px;font-weight:700;margin:4px 0 10px}
+.c2 .n small{font-size:15px;color:var(--mut);font-weight:500}
+.h2{font-weight:700;color:var(--mut);margin:20px 4px 8px}
+.bds{display:flex;gap:10px;align-items:center;overflow-x:auto}
+.bd{width:52px;height:52px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:700;background:#1b3226;color:#4d6b57}
+.bd.on{background:var(--acc);color:var(--acc-t)}
+.lvs{display:flex;gap:6px;margin-top:12px}
+.lvs span{flex:1;text-align:center;padding:8px 0;border-radius:999px;background:#1b3226;color:var(--mut);font-weight:700;font-size:14px}
+.lvs span.on{background:var(--acc);color:var(--acc-t)}
+.opt.sel{border-color:var(--acc)!important;background:var(--okb)!important;color:var(--ink)}</style>
+</head>
+<body>
+<main id="app"></main><nav id="nav"></nav>
+<script>
+var RAW=[
+["Doʻstlik","الإعجاب=yoqtirish, qoyil qolish;المتحف=muzey;تواصل=aloqa;حجز=bron qilish;المشاركة=ishtirok;يزعج=bezovta qiladi;أتحمل=chidayman;أخسر=yutqazaman;التعليق=izoh;مشرف=nazoratchi"],
+["Bayramlar","نجاح=muvaffaqiyat;حفل زفاف=toʻy marosimi;جهد=harakat, kuch;انتبه=eʼtibor ber;انتهاء=tugash;الزينة=bezak;يكمل=davom ettiradi;هدية=sovgʻa;تجهيز=tayyorlash;استقبال=kutib olish"],
+["Kvartira","يخفض=pasaytiradi;شرفة=balkon;احمل=koʻtaraman;مواصفات=xususiyatlar;إحضار=olib kelish;وجد=topdi;استمارة=anketa;أثاث=mebel"],
+["Ob-havo","حار=issiq;بارد=sovuq;مثلج=qorli;ممطر=yomgʻirli;متقلب=oʻzgaruvchan;تستعد=tayyorlanasan;معتدل=moʼtadil;مشمس=quyoshli;معطف=palto;ارتداء=kiyish;أفسد=buzdi;تنسى=unutasan"],
+["Savdo","تخفيضات=chegirmalar;أنواع=turlar;أسعار=narxlar;بضائع=tovarlar;يقيس=kiyib koʻradi;يبدأ=boshlanadi;القطن=paxta;تفسد=buziladi;واسع=keng;ضيق=tor"],
+["Salomatlik","تؤذي=zarar yetkazadi;يفحص=tekshiradi;صداع=bosh ogʻrigʻi;خاصة=ayniqsa;أصابتني=meni tutdi;الراحة=dam;يكره=yomon koʻradi;باستمرار=doimo;مسكنات=ogʻriq qoldiruvchi;استلقى=yotdi"],
+["Ish izlash","تنشر=eʼlon qiladi;يحدد=belgilaydi;المتوقع=kutilgan;يناسب=mos keladi;أتصفح=koʻrib chiqaman;يكفي=yetadi;تتغير=oʻzgaradi;تستمر=davom etadi;تترك=tark etadi"],
+["Ovqat","المقبلات=gazaklar;يأتي=keladi;لذيذ=mazali;يمزح=hazillashadi;علبة=quti;يجوع=ochqaydi;الحساب=hisob;يجتمع=yigʻiladi;جاهز=tayyor;يستغرق=vaqt oladi"],
+["Tarixiy joylar","بني=qurildi;تحمي=himoya qiladi;مزين=bezatilgan;يعتقد=ishonadi;تماثيل=haykallar;يشبه=oʻxshaydi;رحلة=sayohat;مجاورة=yondosh;سائح=sayyoh;يستعمل=ishlatadi"],
+["Yoʻlda","مواصلات=transport;المقابل=qarshisidagi;تائه=adashgan;عنوان=manzil;نتقابل=uchrashamiz;يعبر=kesib oʻtadi;نسي=unutdi;إصلاح=taʼmirlash;صعد=chiqdi;محطة=bekat"],
+["Islomiy shaxslar","يقنع=ishontiradi;أداء=ijro, bajarish;حلقة=dars davrasi;رعاية=gʻamxoʻrlik;مذهب=mazhab;تشجيع=ragʻbatlantirish;تحمل=chidadi;نشأ=voyaga yetdi;ابتكر=ixtiro qildi;جراحة=jarrohlik"],
+["Atrofimizdagi olam","أجنحة=qanotlar;الغابة=oʻrmon;أليفة=xonaki;مفترسة=yirtqich;يمضغ=chaynaydi;العشب=oʻt;حنون=mehribon;الركض=yugurish;تمييز=ajratish;صوف=jun"]
+];
+var PH=[
+"موقع التواصل الاجتماعي=ijtimoiy tarmoq sayti;كل شيء على ما يرام=hammasi joyida;يزعجني=meni bezovta qiladi;هوّن عليك=xotirjam boʻl;أراك لاحقًا=keyin koʻrishamiz;ندفع النقود=pul toʻlaymiz",
+"أحلى من العسل=asaldan shirin;يوفق بين=moslashtiradi;لكل حادثة حديث=har voqeaning gapi bor;بمجرد أن=...ishi bilan;فارغو الأيدي=quruq qoʻl;تكاليف الزواج=toʻy xarajatlari;مبارك النجاح=muvaffaqiyat muborak;ما زال=hamon",
+"موظف الاستقبال=qabul xodimi;تطل على=...ga qaraydi;خدمة التوصيل=yetkazib berish xizmati;عقد الشقة=kvartira shartnomasi;على بركة الله=Alloh nomi bilan;لا شكر على واجب=arzimaydi;طابت ليلتك=xayrli tun;وقتما تحب=xohlagan vaqtingda;مبارك عليكم=muborak boʻlsin;تحت أمرك=xizmatingizga tayyorman",
+"زخات المطر=jala;الاهتمام بـ=...ga eʼtibor;رابطة عنق=galstuk;الملابس القطنية=paxta kiyimlar;مقابلة عمل=ish suhbati;نشرة الأخبار=yangiliklar;ننتقل إلى=...ga oʻtamiz;ينصح بـ=...ni maslahat beradi",
+"على غير العادة=odatdagidan farqli;غرفة تبديل الملابس=kiyinish xonasi;فرصة لن تعوض=qaytmas imkoniyat;لا تكفي=yetmaydi;اللحوم المثلجة=muzlatilgan goʻsht;من أجل ذلك=shu sababli",
+"أقراص مسكنة=ogʻriq qoldiruvchi tabletka;بالرغم من=...ga qaramay;يساعد على=...ga yordam beradi;وصفة علاجية=dori retsepti;عصائر معلبة=konserva sharbatlar;أنصحك بـ=senga ...ni maslahat beraman;أريد أي شيء=istalgan narsa kerak;مواد حافظة=konservantlar;تحتوي على=...ni oʻz ichiga oladi;مياه غازية=gazli suv",
+"سنوات الخبرة=tajriba yillari;عفا عليه الزمن=eskirgan;فرصة عمل=ish imkoniyati;مختصة بـ=...ga ixtisoslashgan;يتراوح بين=...orasida oʻzgaradi;وسائل التواصل الاجتماعي=ijtimoiy tarmoqlar",
+"يؤدي إلى=...ga olib keladi;أطعمة سريعة=tez tayyorlanadigan ovqat;مليئة بـ=...ga toʻla;ضارة بـ=...ga zararli",
+"الحدائق المعلقة=osma bogʻlar;عجائب الدنيا السبع=dunyoning 7 moʻjizasi;تعد من=...dan sanaladi;تقريبًا من=...ga yaqin;من المعروف أن=maʼlumki",
+"قطار الأنفاق=metro;بطاقة المواصلات=transport kartasi;منذ زمن طويل=anchadan beri;خرائط جوجل=Google xaritalari;الاتجاه المعاكس=teskari yoʻnalish;ضل الطريق=yoʻldan adashdi",
+"التحق بـ=...ga kirdi;تتلمذ على=...dan taʼlim oldi;مشهورًا بـ=...bilan mashhur;من الأفضل أن=...yaxshiroq;نشأ في=...da voyaga yetdi;توجه إلى=...ga yoʻnaldi",
+"ترطيب الحرارة=haroratni pasaytirish;يعتمد على=...ga tayanadi;حاسة شم=hid bilish hissi;أمور الحياة=hayot ishlari;يتغذى على=...bilan oziqlanadi;العديد من=koʻplab"
+];
+var BOOKS=[{id:"mo",ar:"المنهج العالمي",sub:"A2 darajasi",units:RAW.map(function(u,i){var it=[];function add(s,t){(s||"").split(";").forEach(function(p){if(!p)return;var a=p.split("=");it.push({t:t,ar:a[0],uz:a[1],id:"mo|"+(i+1)+"|"+a[0]})})}add(u[1],"w");add(PH[i],"p");return{name:u[0],items:it}})}];
+var MF=[["1-1 · طلاب حول العالم","لقب=laqab, familiya;هواية=qiziqish, hobbi;عمر=yosh;مدينة=shahar;جنسية=fuqarolik;لغة=til"],
+["1-2 · مهن من حياتنا","طبيب=shifokor;صيدلي=dorixonachi;سائق=haydovchi;طباخ=oshpaz;خباز=nonvoy;مدرس=oʻqituvchi;شرطي مرور=yoʻl politsiyachisi;حلاق=sartarosh;مستشفى=kasalxona;صيدلية=dorixona;مطعم=restoran;فندق=mehmonxona;جامعة=universitet;مدرسة=maktab;مخبز=nonvoyxona;دكان=doʻkon;ممتع=qiziqarli;مريح=qulay;متعب=charchatuvchi;يحب=yaxshi koʻradi;يكره=yomon koʻradi;يذهب=boradi;يرجع=qaytadi;يبدأ=boshlaydi;ينتهي=tugaydi;مهنة=kasb;متقاعد=nafaqaxoʻr;مناوبة=smena;أجرة=ish haqi;عطلة=taʼtil"],
+["2-1 · الدراسة","صف=sinf;سنة=yil;استراحة=tanaffus;برنامج دراسي=oʻquv dasturi;مادة=fan;مجتهد=tirishqoq;مراحل الدراسة=taʼlim bosqichlari;الروضة=bogʻcha;الابتدائية=boshlangʻich maktab;المتوسطة=oʻrta maktab;الثانوية=yuqori sinflar;الدراسات العليا=magistratura;أول=birinchi;آخر=oxirgi;تفقد=tekshirmoq"],
+["2-2 · مواصلات في المدينة","حافلة=avtobus;قطار=poyezd;سفينة=kema;سيارة أجرة=taksi;محطة=bekat;سريع=tez;بطيء=sekin;غالي=qimmat;رخيص=arzon;آمن=xavfsiz;خطير=xavfli;بعيد عن=...dan uzoq;قريب من=...ga yaqin;يركب=minadi;ينزل=tushadi;يخرج من=...dan chiqadi;يدخل إلى=...ga kiradi;ينطلق إلى=...ga yoʻlga chiqadi;يصل إلى=...ga yetib boradi"],
+["3-1 · العائلة العربية","ابن=oʻgʻil;بنت=qiz;والد=ota;والدة=ona;جد=bobo;جدة=buvi;عم=amaki;عمة=amma;خال=togʻa;خالة=xola;قوي=kuchli;حب=sevgi;احتياجات=ehtiyojlar;مستقبل=kelajak;تتكون من=...dan iborat;مسؤول عن=...uchun masʼul;تربي=tarbiyalaydi;تنظف=tozalaydi;ترتب=tartibga soladi;تحضر=tayyorlaydi;تغسل=yuvadi;تكوي=dazmollaydi"],
+["3-2 · أصدقاء من حولنا","مفضل=sevimli;هادئ=sokin;محبوب=hurmatli, yoqimli;نشيط=faol;مزوح=hazilkash;حساس=sezgir;أحب=yaxshi koʻraman;أمارس=shugʻullanaman;أعيش=yashayman;أتجول=aylanaman;أجتمع=yigʻilaman;السياحة=turizm;السفر=safar;أيام الطفولة=bolalik kunlari;صديقي العزيز=aziz doʻstim"],
+["4-1 · بيوت تراثية","غرفة النوم=yotoqxona;غرفة الجلوس=mehmon xonasi;مطبخ=oshxona;حمام=hammom;مرحاض=hojatxona;شرفة=balkon;واسع=keng;مربع=kvadrat;ساحة=hovli, maydon;نافورة=favvora;حديقة=bogʻ;قسم=boʻlim;بناء=bino;شقة=kvartira;طابق=qavat;منزل=uy;مدخل البيت=uy kirish qismi;مخصص ل=...uchun moʻljallangan"],
+["4-2 · رسالة من صديق","قديم=qadimiy;أثر=yodgorlik;سوق=bozor;ضريح=maqbara;قلعة=qalʼa;معبد=ibodatxona;مقهى=kafe;يسافر=safar qiladi;سفر=safar;يحتوي على=...ni oʻz ichiga oladi;زار=ziyorat qildi;يزور=ziyorat qiladi;زيارة=ziyorat;مشى=yurdi;يمشي=yuradi;مشي=yurish;امش=yur"],
+["5-1 · عادات سيئة عند شباب اليوم","عادة=odat;وجبة صحية=sogʻlom ovqat;وجبة سريعة=tez ovqat;سهر=bedor qoldi;يسهر=bedor qoladi;قضى=oʻtkazdi;يقضي=oʻtkazadi;قضاء=oʻtkazish;نام=uxladi;ينام=uxlaydi;نوم=uyqu;دخن=chekdi;يدخن=chekadi;تدخين=chekish"],
+["5-2 · عادات يومية صحية","يستيقظ=uygʻonadi;يتوضأ=tahorat oladi;يصلي=namoz oʻqiydi;يتناول=iste'mol qiladi;يمارس=shugʻullanadi;يغسل=yuvadi;ينظف=tozalaydi;يقلم=qirqadi;مفيد=foydali;بارد=sovuq;مبكر=erta;جالس=oʻtirgan;التغذية الصحية=sogʻlom ovqatlanish;نشط=faol;تنشيط=faollashtirish;حافظ=saqladi;محافظة=saqlash"],
+["6-1 · مائدة رمضانية","صوم=roʻza;إفطار=iftorlik;سحور=saharlik;أصناف=turlar;مائدة=dasturxon;سلطة خضار=sabzavot salati;مشروبات=ichimliklar;حلويات=shirinliklar;فاكهة=meva;محاشي=tolma;حضر=tayyorladi;يحضر=tayyorlaydi;تحضير=tayyorlash;تناول=iste'mol qildi;اجتمع=yigʻildi;يجتمع=yigʻiladi;اجتماع=yigʻilish"],
+["6-2 · عادات غذائية عند شعوب العالم","غذاء=oziq-ovqat;دسم=yogʻli;غني=boy;دهون=yogʻlar;سعرات حرارية=kaloriya;بهارات=ziravorlar;معجنات=xamirli taomlar;فطيرة=pirog;يتكون من=...dan iborat;مارس=shugʻullandi;يمارس=shugʻullanadi;ممارسة=shugʻullanish"],
+["7-1 · شخصيات وملابس","ثوب=uzun kiyim, koʻylak;عباءة=abaya;قبعة=shlyapa;عمامة=salla;لاعب=oʻyinchi;حذاء=poyabzal;فضفاض=keng (kiyim);سترة=kurtka;حزام=kamar;عريض=enli;وشاح=sharf;شماغ=arab roʻmoli;عقال=iqol;أحكي=hikoya qilaman;يحكي=hikoya qiladi;حكاية=hikoya;أم=imomlik qildi;يؤم=imomlik qiladi;إمامة=imomlik;أضع=qoʻyaman;يضع=qoʻyadi;ضع=qoʻy"],
+["7-2 · طبيب الفقراء","ماهر=mohir;جدي=jiddiy;نحيل=ozgʻin;سمين=semiz;قنوع=qanoatli;رخيص=arzon;بشوش الوجه=ochiq yuzli;متوسط القامة=oʻrta boʻyli;وصفة دواء=dori retsepti;فحص=tekshirdi;يفحص=tekshiradi;علاج=davo;عالج=davoladi;يعالج=davolaydi"]];
+BOOKS.push({id:"mf",ar:"مفتاح العربية",sub:"A1 · oʻqish va yozish",units:MF.map(function(u,i){return{name:u[0],items:u[1].split(";").map(function(p){var a=p.split("=");return{t:"w",ar:a[0],uz:a[1],id:"mf|"+(i+1)+"|"+a[0]}})}})});
+function ld(){try{var d=JSON.parse(localStorage.getItem("arb2"));if(d&&d.p)return d}catch(e){}return{name:"ABDULBOSITXON",p:{},a:0,c:0,days:[]}}
+var D=ld();var CD=null,CT;function cloud(){if(!CD)return;clearTimeout(CT);CT=setTimeout(function(){try{CD.set(JSON.parse(JSON.stringify(D))).catch(function(){})}catch(e){}},800)}
+function sv(){try{localStorage.setItem("arb2",JSON.stringify(D))}catch(e){}cloud()}
+function cinit(){try{if(!window.claude||!claude.use)return;Promise.all([claude.use("db"),claude.use("user")]).then(function(r){if(!r[0]||!r[1])return;return r[1].id().then(function(id){if(!id)return;var d=r[0].collection("data/users/"+id).doc("progress");return d.get().then(function(s){var v=s.exists?s.data():null;CD=d;if(v&&v.p&&(v.a||0)>=D.a){D=JSON.parse(JSON.stringify(v));if(!D.days)D.days=[];try{localStorage.setItem("arb2",JSON.stringify(D))}catch(e){}draw()}else cloud()})})}).catch(function(){})}catch(e){}}
+var S={tab:"lib",bk:null,sel:{},type:"all",dir:"ar",n:20,q:[],i:0,ok:0,bad:[]};
+var TH=[0,100,300,600,1000,1600],LN=["Yangi boshlovchi","Oʻquvchi","Oʻrta daraja","Ilgʻor","Mohir","Ustoz"];
+function B(){return BOOKS.filter(function(b){return b.id==S.bk})[0]}
+function bitems(b){return [].concat.apply([],b.units.map(function(u){return u.items}))}
+function allItems(){return [].concat.apply([],BOOKS.map(bitems))}
+function pr(id){return D.p[id]||{s:0,c:0,w:0}}
+function stat(a){var m=0,l=0,t=0;a.forEach(function(x){var p=pr(x.id);t+=Math.min(p.s,3);if(p.s>=1)m++;else if(p.c+p.w>0)l++});return{m:m,l:l,t:t,n:a.length}}
+function pct(s){return s.n?Math.round(s.m/s.n*100):0}
+function bar(p){return '<div class="bar"><i style="width:'+p+'%"></i></div>'}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function today(d){d=d||new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function streak(){var n=0,d=new Date();if(D.days.indexOf(today(d))<0)d.setDate(d.getDate()-1);while(D.days.indexOf(today(d))>-1){n++;d.setDate(d.getDate()-1)}return n}
+function arc(x){return '<div class="ar" style="font-size:'+(x.ar.length>14?30:44)+'px">'+x.ar+'</div>'}
+var IC={cefr:'<svg viewBox="0 0 24 24"><path d="M5 20v-8M12 20V5M19 20V9"/></svg>',lib:'<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg>',prof:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>'};
+function show(h,nv){var n=document.getElementById("nav");document.getElementById("app").innerHTML=h;n.style.display=nv?"flex":"none";n.innerHTML=[["lib","Lugʻat"],["cefr","Imtihon"],["prof","Profil"]].map(function(t){return '<button data-a="tab" data-v="'+t[0]+'" aria-pressed="'+(S.tab==t[0])+'">'+IC[t[0]]+'<span>'+t[1]+'</span></button>'}).join("");window.scrollTo(0,0)}
+function draw(){S.tab=="prof"?prof():S.tab=="cefr"?cefrView():(S.bk?book():lib())}
+function lib(){var h='<h1>Lugʻatlar</h1><p class="sub">Oʻrganmoqchi boʻlgan kitobni tanlang.</p>';BOOKS.forEach(function(b){var s=stat(bitems(b));h+='<button class="book" data-a="book" data-v="'+b.id+'"><span class="ar">'+b.ar+'</span><span>'+b.sub+', '+b.units.length+' unit, '+s.n+' ta yozuv</span>'+bar(pct(s))+'<span class="meta">'+pct(s)+'% takrorlangan</span></button>'});h+='<p class="sub">Yangi kitoblar keyinroq qoʻshiladi.</p>';show(h,1)}
+function pool(){var b=B(),k=Object.keys(S.sel).length,a=[];b.units.forEach(function(u,i){if(!k||S.sel[i])a=a.concat(u.items)});return S.type=="all"?a:a.filter(function(x){return x.t==S.type})}
+function chips(key,arr){return '<div class="row">'+arr.map(function(o){return '<button class="chip" data-a="'+key+'" data-v="'+o[0]+'" aria-pressed="'+(S[key]==o[0])+'">'+o[1]+'</button>'}).join("")+'</div>'}
+function book(){var b=B(),p=pool(),wk=p.filter(function(x){var q=pr(x.id);return q.w>0&&q.s<1}).length;
+var h='<div class="top"><button class="link" data-a="back">‹ Kitoblar</button></div><h1 class="ar" style="font-size:34px">'+b.ar+'</h1><p class="sub">Unitlarni tanlang. Tanlamasangiz, hammasi olinadi.</p>';
+b.units.forEach(function(u,i){var s=stat(u.items);h+='<button class="unit" aria-pressed="'+!!S.sel[i]+'" data-a="unit" data-v="'+i+'"><span>'+(i+1)+'. '+u.name+'</span><span class="meta">'+pct(s)+'% · '+s.m+' / '+s.n+'</span>'+bar(pct(s))+'</button>'});
+h+='<div class="lab">Nimani oʻrganamiz</div>'+chips("type",[["all","Hammasi"],["w","Soʻzlar"],["p","Iboralar"]])+'<div class="lab">Savol yoʻnalishi</div>'+chips("dir",[["ar","Arabcha → Oʻzbekcha"],["uz","Oʻzbekcha → Arabcha"]])+'<div class="lab">Savollar soni</div>'+chips("n",[[10,"10"],[20,"20"],[40,"40"]]);
+h+='<div class="row"><button class="btn p" data-a="test">Testni boshlash ('+p.length+' ta ichidan)</button></div><div class="row"><button class="btn" data-a="cards">Kartochkalar</button></div><div class="row"><button class="btn" data-a="wrong">Xatolarni takrorlash ('+wk+')</button></div>';show(h,1)}
+function start(p,all){S.q=sh(p).slice(0,all?p.length:S.n);S.i=0;S.ok=0;S.bad=[];quiz()}
+function quiz(){if(S.i>=S.q.length)return done();var w=S.q[S.i],ar=S.dir=="ar";S.cur=w;
+var same=bitems(B()).filter(function(x){return x.t==w.t&&x.id!=w.id&&(ar?x.uz!=w.uz:x.ar!=w.ar)});var o=sh(sh(same).slice(0,3).concat([w]));
+show('<div class="top"><button class="link" data-a="home">‹ Chiqish</button><span class="meta">'+(S.i+1)+' / '+S.q.length+'</span></div>'+bar(S.i/S.q.length*100)+'<div class="q">'+(ar?arc(w):'<div class="uz">'+esc(w.uz)+'</div>')+'<div class="meta">'+(w.t=="p"?"Ibora":"Soʻz")+', '+w.id.split("|")[1]+'-unit</div></div>'+
+o.map(function(x){return '<button class="opt'+(ar?'':' arb')+'" data-a="opt" data-v="'+esc(x.id)+'">'+(ar?esc(x.uz):x.ar)+'</button>'}).join("")+'<div class="fb" id="fb"></div><div id="nx"></div>',0)}
+function done(){var s=S.q.length?Math.round(S.ok/S.q.length*100):0;show('<div class="res"><div class="big">'+S.ok+' / '+S.q.length+'</div><div class="meta">'+s+'% toʻgʻri</div></div>'+(S.bad.length?'<div class="lab">Xato qilingan yozuvlar</div><div class="wl">'+S.bad.map(function(w){return '<div><span>'+esc(w.uz)+'</span><span class="ar">'+w.ar+'</span></div>'}).join("")+'</div>':'<p class="sub" style="text-align:center">Hammasi toʻgʻri!</p>')+'<div class="row"><button class="btn p" data-a="test">Yana urinish</button></div><div class="row"><button class="btn" data-a="home">Kitobga qaytish</button></div>',1)}
+function card(){var c=S.cs,w=c.q[c.i];show('<div class="top"><button class="link" data-a="home">‹ Chiqish</button><span class="meta">'+(c.i+1)+' / '+c.q.length+'</span></div>'+bar((c.i+1)/c.q.length*100)+'<div class="q" data-a="flip" style="cursor:pointer;min-height:170px">'+arc(w)+(c.f?'<div class="uz" style="margin-top:10px">'+esc(w.uz)+'</div>':'<div class="meta" style="margin-top:14px">Maʼnosini koʻrish uchun bosing</div>')+'</div><div class="row"><button class="btn" data-a="pv" style="flex:1">‹</button><button class="btn p" data-a="nx" style="flex:1">›</button></div>',0)}
+function xp(){return stat(allItems()).m*10+D.c*2}
+function prof(){var all=allItems(),s=stat(all),X=xp(),i=0;TH.forEach(function(t,k){if(X>=t)i=k});var nx=TH[i+1],p=nx?Math.round((X-TH[i])/(nx-TH[i])*100):100,k=streak(),acc=D.a?Math.round(D.c/D.a*100):0;
+var bd=[[D.a>=1,"▶"],[s.m>=10,"10"],[s.m>=50,"50"],[s.m>=100,"100"],[k>=3,"3k"],[k>=7,"7k"]],ne=bd.filter(function(b){return b[0]}).length;
+var h='<h1>Profil</h1><div class="hero"><div class="hr"><div class="av" style="background:conic-gradient(var(--acc) '+p+'%,rgba(255,255,255,.2) 0)"><label style="display:contents"><input type="file" accept="image/*" id="ph" hidden><i style="cursor:pointer'+(D.photo?';background:url('+D.photo+') center/cover':'')+'">'+(D.photo?'':esc((D.name||"ع").charAt(0).toUpperCase()))+'</i></label></div><div style="flex:1;min-width:0"><input id="nm" value="'+esc(D.name)+'" maxlength="30" aria-label="Ism"><span class="pill">'+LN[i]+'</span><span class="pill">'+(i+1)+'-daraja</span><span class="pill" data-a="tab" data-v="cefr" style="background:var(--acc);color:var(--acc-t);cursor:pointer">Imtihon '+(D.cefr?esc(D.cefr.l):"?")+'</span><div class="xpt">'+X+' XP'+(nx?' · keyingi darajagacha '+(nx-X)+' XP':' · eng yuqori daraja')+'</div></div></div><div class="tri"><div><b>'+k+'</b>Bardavomlik</div><div><b>'+acc+'%</b>Aniqlik</div><div><b>'+D.a+'</b>Savollar</div></div></div>'+
+cefrCard()+'<div class="c2"><div class="k">TAKRORLANGAN</div><div class="n">'+s.m+' <small>/ '+s.n+' ta yozuv</small></div>'+bar(pct(s))+'<div class="pu"><span>'+s.l+' ta xato, qayta takrorlang</span><span>'+(s.n-s.m-s.l)+' ta koʻrilmagan</span></div><div class="row" style="margin-top:12px"><button class="btn p" data-a="tab" data-v="lib">Mashq qilish</button></div></div>'+
+'<div class="h2">Nishonlar</div><div class="c2"><div class="bds">'+bd.map(function(b){return '<div class="bd'+(b[0]?' on':'')+'">'+b[1]+'</div>'}).join("")+'<span class="meta" style="margin-left:auto">'+ne+'/'+bd.length+'</span></div></div>'+
+'<div class="h2">Daraja</div><div class="c2"><div style="font-size:20px;font-weight:700">'+LN[i]+'</div><div class="lvs">'+LN.map(function(n,j){return '<span'+(j==i?' class="on"':'')+'>'+(j+1)+'</span>'}).join("")+'</div></div>'+
+'<p class="sub">Yozuv oxirgi javobingiz toʻgʻri boʻlsa takrorlangan hisoblanadi. XP: har takrorlangan yozuv 10, har toʻgʻri javob 2.</p>';
+h+='<div class="h2">Kitoblar</div>';S.open=S.open||{};BOOKS.forEach(function(b){var t=stat(bitems(b)),o=S.open[b.id];h+='<div class="c2"><button data-a="tgl" data-v="'+b.id+'" style="display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;color:var(--ink);padding:0 0 10px;font:inherit;cursor:pointer"><span class="ar" style="font-size:24px">'+b.ar+'</span><b style="color:var(--acc)">'+pct(t)+'% '+(o?'▴':'▾')+'</b></button>'+bar(pct(t));if(o)b.units.forEach(function(u,q){var x=stat(u.items);h+='<div class="pu"><span>'+(/^\d/.test(u.name)?'':(q+1)+'. ')+u.name+'</span><span>'+pct(x)+'%</span></div>'+bar(pct(x))});h+='</div>'});
+h+='<div class="row" style="margin-top:20px"><button class="btn" data-a="reset">Natijalarni oʻchirish</button></div>';show(h,1)}
+var A={tab:function(v){S.tab=v;S.bk=null;draw()},book:function(v){S.tab="lib";S.bk=v;S.sel={};book()},back:function(){S.bk=null;lib()},home:function(){book()},
+unit:function(v){if(S.sel[v])delete S.sel[v];else S.sel[v]=1;var y=window.scrollY;book();window.scrollTo(0,y)},
+type:function(v){S.type=v;var y=window.scrollY;book();window.scrollTo(0,y)},dir:function(v){S.dir=v;var y=window.scrollY;book();window.scrollTo(0,y)},n:function(v){S.n=+v;var y=window.scrollY;book();window.scrollTo(0,y)},
+test:function(){var p=pool();if(!p.length)return;start(p)},
+wrong:function(){var p=pool().filter(function(x){var q=pr(x.id);return q.w>0&&q.s<1});if(!p.length){alert("Xatolar roʻyxati boʻsh.");return}start(p,1)},
+cards:function(){S.cs={q:sh(pool()),i:0,f:0};card()},flip:function(){S.cs.f=!S.cs.f;card()},pv:function(){var c=S.cs;c.i=(c.i-1+c.q.length)%c.q.length;c.f=0;card()},nx:function(){var c=S.cs;c.i=(c.i+1)%c.q.length;c.f=0;card()},
+opt:function(id){var w=S.cur,g=id==w.id,p=D.p[w.id]||(D.p[w.id]={s:0,c:0,w:0}),m="";D.a++;
+if(g){D.c++;p.s++;p.c++;S.ok++;if(p.s==1)m="Takrorlandi ✓"}else{p.s=0;p.w++;S.bad.push(w)}
+try{var t=today();if(!D.days)D.days=[];if(D.days.indexOf(t)<0)D.days.push(t);sv()}catch(e){}
+document.querySelectorAll(".opt").forEach(function(o){o.disabled=true;if(o.dataset.id==w.id||o.dataset.v==w.id)o.classList.add("ok");else if(o.dataset.v==id)o.classList.add("no")});
+document.getElementById("fb").textContent=m;
+document.getElementById("nx").innerHTML='<button class="btn p" data-a="next" id="nb">'+(S.i+1>=S.q.length?"Natijani koʻrish":"Keyingisi")+'</button>';document.getElementById("nb").focus()},
+next:function(){S.i++;quiz()},
+reset:function(){if(confirm("Barcha natijalar oʻchiriladi. Davom etasizmi?")){var n=D.name,ph=D.photo;D={name:n,photo:ph,p:{},a:0,c:0,days:[]};sv();prof()}}};
+document.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b||b.disabled)return;var f=A[b.dataset.a];if(f)f(b.dataset.v,b)});
+document.addEventListener("input",function(e){if(e.target.id=="nm"){D.name=e.target.value;sv()}});
+document.addEventListener("change",function(e){if(e.target.id!="ph"||!e.target.files[0])return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var c=document.createElement("canvas"),z=240,m=Math.min(im.width,im.height);c.width=c.height=z;c.getContext("2d").drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,z,z);D.photo=c.toDataURL("image/jpeg",.8);sv();prof()};im.src=r.result};r.readAsDataURL(e.target.files[0])});
+A.opt=function(id){S.pick=id;document.querySelectorAll(".opt").forEach(function(o){o.classList.toggle("sel",o.dataset.v==id)});var n=document.getElementById("nx");if(!n.firstChild)n.innerHTML='<button class="btn p" data-a="next">'+(S.i+1>=S.q.length?"Yakunlash":"Keyingisi")+'</button>'};
+A.next=function(){if(!S.pick)return;var w=S.cur,g=S.pick==w.id;try{var p=D.p[w.id]||(D.p[w.id]={s:0,c:0,w:0});D.a++;if(g){D.c++;p.s++;p.c++;S.ok++}else{p.s=0;p.w++;S.bad.push(w)}var t=today();if(!D.days)D.days=[];if(D.days.indexOf(t)<0)D.days.push(t);sv()}catch(e){}S.pick=null;S.i++;quiz()};
+A.next=function(){if(!S.pick)return;var w=S.cur,g=S.pick==w.id;try{var p=D.p[w.id]||(D.p[w.id]={s:0,c:0,w:0});D.a++;if(g){D.c++;p.s++;p.c++;S.ok++}else{p.s=0;p.w++;S.bad.push(w)}var t=today();if(!D.days)D.days=[];if(D.days.indexOf(t)<0)D.days.push(t);sv()}catch(e){}
+document.querySelectorAll(".opt").forEach(function(o){o.disabled=true;o.classList.remove("sel");if(o.dataset.v==w.id)o.classList.add("ok");else if(o.dataset.v==S.pick)o.classList.add("no")});
+var f=document.getElementById("fb");f.style.color=g?"var(--ok)":"var(--no)";f.textContent=g?"Toʻgʻri ✓":"Xato. Toʻgʻri javob: "+(S.dir=="ar"?w.uz:w.ar);
+document.getElementById("nx").innerHTML='<button class="btn p" data-a="go">'+(S.i+1>=S.q.length?"Natijani koʻrish":"Davom etish")+'</button>'};
+A.go=function(){S.pick=null;S.i++;quiz()};
+A.tgl=function(v){S.open=S.open||{};S.open[v]=!S.open[v];var y=window.scrollY;prof();window.scrollTo(0,y)};
+var LV=["A1","A2","B1","B2","C1"];
+function cefrCard(){var c=D.cefr;return '<div class="c2"><div class="k">CEFR DARAJA (AI)</div>'+(c?'<div class="n">'+esc(c.l)+' <small>'+c.d+'</small></div><p class="sub" style="margin:0 0 10px">'+esc(c.n||"")+'</p>':'<p class="sub">Arab tili darajangizni sunʼiy intellekt aniqlaydi (taxminan 3 daqiqa).</p>')+'<div class="row"><button class="btn p" data-a="cefr">'+(c?"Qayta aniqlash":"Darajani aniqlash")+'</button></div></div>'}
+function cerr(){show('<h1>Xatolik</h1><p class="sub">Test tayyorlab boʼlmadi. Ruxsat berilganini tekshiring yoki keyinroq urinib koʻring.</p><div class="row"><button class="btn" data-a="tab" data-v="prof">Profilga qaytish</button></div>',1)}
+A.cefr=function(){S.tab="prof";show('<div class="top"><button class="link" data-a="tab" data-v="prof">‹ Profil</button></div><h1>CEFR test</h1><p class="sub">Savollar tayyorlanmoqda…</p>',0);
+try{claude.use("sample").then(function(sm){if(!sm)throw 0;S.sm=sm;return sm.json('Arab tili (fusha) darajasini CEFR boʼyicha aniqlash uchun 15 ta test savoli tuz, oʻzbek tilida soʻzlashuvchi uchun. 5 daraja (A1, A2, B1, B2, C1), har darajadan 3 tadan, osondan qiyinga; lugʻat, grammatika va oʻqib tushunish aralash boʼlsin. Savol va variantlar arabcha (harakatlari bilan), savol oxirida qavs ichida qisqa oʻzbekcha izoh boʼlishi mumkin. Har savolda aniq bitta toʻgʻri javob boʼlsin. Faqat JSON qaytar: [{"l":"A1","q":"...","o":["a","b","c","d"],"a":0}], a toʻgʻri variant indeksi (0 dan 3 gacha), toʻgʻri javob oʻrni aralash boʼlsin.')}).then(function(r){if(!r||!r.length)throw 0;S.ct={q:r.slice(0,15),i:0,a:[]};ctq()}).catch(cerr)}catch(e){cerr()}};
+function ctq(){var c=S.ct,w=c.q[c.i];if(!w)return cfin();S.cp=null;show('<div class="top"><button class="link" data-a="tab" data-v="prof">‹ Chiqish</button><span class="meta">'+(c.i+1)+' / '+c.q.length+'</span></div>'+bar(c.i/c.q.length*100)+'<div class="q"><div class="ar" style="font-size:26px;line-height:1.7">'+esc(w.q)+'</div></div>'+w.o.map(function(x,j){return '<button class="opt arb" data-a="cpick" data-v="'+j+'">'+esc(x)+'</button>'}).join("")+'<div id="nx"></div>',0)}
+A.cpick=function(v){S.cp=+v;document.querySelectorAll(".opt").forEach(function(o){o.classList.toggle("sel",o.dataset.v==v)});var n=document.getElementById("nx");if(!n.firstChild)n.innerHTML='<button class="btn p" data-a="cnext">'+(S.ct.i+1>=S.ct.q.length?"Yakunlash":"Keyingisi")+'</button>'};
+A.cnext=function(){if(S.cp==null)return;S.ct.a.push(S.cp);S.ct.i++;ctq()};
+function cfin(){var c=S.ct,sc={},wr=[],tot=0,l="A0";c.q.forEach(function(w,i){var ok=c.a[i]==w.a;sc[w.l]=(sc[w.l]||0)+(ok?1:0);if(ok)tot++;else wr.push(w.l+": "+w.q)});
+LV.forEach(function(v,i){if((i==0||l==LV[i-1])&&(sc[v]||0)>=1)l=v});
+show('<h1>CEFR test</h1><p class="sub">Natija tayyorlanmoqda…</p>',0);var d={l:l=="A0"?"A1 dan past":l,d:today(),n:""};
+S.sm("Arab tili testi natijasi: aniqlangan daraja "+l+", jami "+tot+" / 10 toʻgʻri. Xato javoblar: "+wr.join(" | ")+". Oʻzbek tilida 2-3 ta qisqa gap bilan baho ber va nimani takrorlash kerakligini ayt. Ortiqcha format ishlatma.").then(function(r){d.n=((r&&r.text)||"").trim()}).catch(function(){}).then(function(){D.cefr=d;sv();A.tab("prof")})}
+var CL=["A1","A2","B1","B2","C1","C2"];
+function cefrCard(){var c=D.cefr;return '<button class="c2" data-a="tab" data-v="cefr" style="display:flex;justify-content:space-between;align-items:center;width:100%;color:var(--ink);font:inherit;cursor:pointer;text-align:left"><span><span class="k" style="display:block">IMTIHON</span><span style="font-size:15px;color:var(--mut)">'+(c?'Batafsil va qayta aniqlash':'Darajani aniqlash')+'</span></span><b style="font-size:30px;color:var(--acc)">'+(c?esc(c.l):'›')+'</b></button>'}
+function cefrView(){var c=D.cefr,i=c?CL.indexOf(c.l):-1,h='<h1>CEFR daraja</h1><div class="hero"><div class="xpt" style="margin:0">Arab tili darajangiz (sunʼiy intellekt bahosi)</div><div style="font-size:56px;font-weight:800;margin:6px 0">'+(c?esc(c.l):'—')+'</div><div class="xpt" style="margin:0">'+(c?c.d+' · '+c.tot+' / '+c.max+' toʻgʻri':'Hali aniqlanmagan')+'</div></div>';
+h+='<div class="c2"><div class="k">DARAJALAR</div><div class="lvs">'+CL.map(function(v,j){return '<span'+(j==i?' class="on"':'')+'>'+v+'</span>'}).join("")+'</div></div>';
+if(c&&c.sc){h+='<div class="c2"><div class="k">DARAJALAR BOʻYICHA NATIJA</div>';LV.forEach(function(v){var n=(c.nq&&c.nq[v])||0,s=c.sc[v]||0;if(n)h+='<div class="pu"><span>'+v+'</span><span>'+s+' / '+n+'</span></div>'+bar(Math.round(s/n*100))});h+='</div>'}
+if(c&&c.n)h+='<div class="c2"><div class="k">AI BAHOSI</div><p style="margin:8px 0 0;line-height:1.5">'+esc(c.n)+'</p></div>';
+if(D.ch&&D.ch.length)h+='<div class="h2">Oldingi natijalar</div><div class="c2">'+D.ch.slice().reverse().map(function(x){return '<div class="pu"><span>'+x.d+'</span><span><b>'+esc(x.l)+'</b> · '+x.t+' / '+x.m+'</span></div>'}).join("")+'</div>';
+h+='<p class="sub">Test 15 ta savoldan iborat (A1 dan C1 gacha, har darajadan 3 tadan). Har darajadan kamida 60% toʻgʻri topsangiz, shu daraja hisobga olinadi. Bu taxminiy baho, savollar har safar yangidan tuziladi.</p><div class="row"><button class="btn p" data-a="cefr">'+(c?'Qayta aniqlash':'Darajani aniqlash')+'</button></div>';show(h,1)}
+function cfin(){var c=S.ct,sc={},nq={},wr=[],tot=0,l="A1 dan past",go=true;c.q.forEach(function(w,i){var ok=c.a[i]==w.a;nq[w.l]=(nq[w.l]||0)+1;sc[w.l]=(sc[w.l]||0)+(ok?1:0);if(ok)tot++;else wr.push(w.l+": "+w.q)});
+LV.forEach(function(v){if(go&&nq[v]&&(sc[v]||0)>=Math.ceil(nq[v]*0.6))l=v;else go=false});
+show('<h1>CEFR test</h1><p class="sub">Natija tayyorlanmoqda…</p>',0);var d={l:l,d:today(),tot:tot,max:c.q.length,sc:sc,nq:nq,n:""};
+S.sm("Arab tili testi natijasi: aniqlangan daraja "+l+", jami "+tot+" / "+c.q.length+" toʻgʻri. Xato javoblar: "+wr.join(" | ")+". Oʻzbek tilida 3-4 ta qisqa gap bilan baho ber va nimani takrorlash kerakligini ayt. Ortiqcha format ishlatma.").then(function(r){d.n=(typeof r=="string"?r:((r&&r.text)||"")).trim()}).catch(function(){}).then(function(){if(!d.n)d.n=tot+" / "+c.q.length+" toʻgʻri javob berdingiz. "+(wr.length?"Xato qilingan savollar "+wr.map(function(x){return x.split(":")[0]}).filter(function(x,k,a){return a.indexOf(x)==k}).join(", ")+" darajalarida.":"Hammasi toʻgʻri!");D.cefr=d;D.ch=(D.ch||[]).concat([{l:d.l,d:d.d,t:tot,m:d.max}]).slice(-8);sv();A.tab("cefr")})}
+var TP=["oila","sayohat","ish","ovqat","salomatlik","taʼlim","sport","texnologiya","ob-havo","bozor","tarix","axloq","tabiat","shahar hayoti","doʻstlik","yangiliklar","madaniyat","transport"];
+A.cefr=function(){S.tab="cefr";show('<div class="top"><button class="link" data-a="tab" data-v="cefr">‹ Orqaga</button></div><h1>CEFR test</h1><p class="sub">Yangi savollar tayyorlanmoqda…</p>',0);
+try{claude.use("sample").then(function(sm){if(!sm)throw 0;S.sm=sm;var tp=sh(TP).slice(0,6).join(", "),seen=(D.seen||[]).slice(-45).join(" | ");return sm.json('Arab tili (fusha) darajasini CEFR boʼyicha aniqlash uchun 15 ta YANGI test savoli tuz, oʻzbek tilida soʻzlashuvchi uchun. 5 daraja (A1, A2, B1, B2, C1), har darajadan 3 tadan, osondan qiyinga; lugʻat, grammatika va oʻqib tushunish aralash boʼlsin. Tasodifiy kod: '+Math.random().toString(36).slice(2,8)+'. Mavzular: '+tp+'. Har safar boshqacha, original savollar tuz. Quyidagi savollarni va ularga oʻxshashlarini takrorlama: '+(seen||"yoʻq")+'. Savol va variantlar arabcha (harakatlari bilan), savol oxirida qavs ichida qisqa oʻzbekcha izoh boʼlishi mumkin. Har savolda aniq bitta toʻgʻri javob boʼlsin. Faqat JSON qaytar: [{"l":"A1","q":"...","o":["a","b","c","d"],"a":0}], a toʻgʻri variant indeksi (0 dan 3 gacha), toʻgʻri javob oʻrni aralash boʼlsin.')}).then(function(r){if(!r||!r.length)throw 0;S.ct={q:r.slice(0,15),i:0,a:[]};D.seen=(D.seen||[]).concat(S.ct.q.map(function(x){return String(x.q).slice(0,70)})).slice(-60);sv();ctq()}).catch(cerr)}catch(e){cerr()}};
+var SK={lug:"Lugʻat",nahv:"Nahv (grammatika)",oqish:"Oʻqib tushunish"},TT=1200,TI=null;
+function tmf(s){return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function cefrView(){var c=D.cefr,pt=c?(c.p100!=null?c.p100:Math.round(c.tot/c.max*100)):0,h='<h1>Imtihon</h1><div class="hero"><div class="xpt" style="margin:0">التنال · Tanal uslubidagi arab tili imtihoni</div><div style="font-size:52px;font-weight:800;margin:6px 0">'+(c?pt+' <small style="font-size:20px">/ 100</small>':'—')+'</div><div class="xpt" style="margin:0">'+(c?'Daraja: <b>'+esc(c.l)+'</b> · '+c.d:'Hali topshirilmagan')+'</div></div>';
+var i=c?CL.indexOf(c.l):-1;h+='<div class="c2"><div class="k">DARAJA</div><div class="lvs">'+CL.map(function(v,j){return '<span'+(j==i?' class="on"':'')+'>'+v+'</span>'}).join("")+'</div></div>';
+if(c&&c.ss){h+='<div class="c2"><div class="k">BOʻLIMLAR BOʻYICHA</div>';Object.keys(SK).forEach(function(k){var x=c.ss[k];if(x&&x[1])h+='<div class="pu"><span>'+SK[k]+'</span><span>'+x[0]+' / '+x[1]+'</span></div>'+bar(Math.round(x[0]/x[1]*100))});h+='</div>'}
+if(c&&c.sc){h+='<div class="c2"><div class="k">DARAJALAR BOʻYICHA</div>';LV.forEach(function(v){var n=(c.nq&&c.nq[v])||0,s=c.sc[v]||0;if(n)h+='<div class="pu"><span>'+v+'</span><span>'+s+' / '+n+'</span></div>'+bar(Math.round(s/n*100))});h+='</div>'}
+if(c&&c.n)h+='<div class="c2"><div class="k">XULOSA</div><p style="margin:8px 0 0;line-height:1.5">'+esc(c.n)+'</p></div>';
+if(D.ch&&D.ch.length)h+='<div class="h2">Oldingi urinishlar</div><div class="c2">'+D.ch.slice().reverse().map(function(x){return '<div class="pu"><span>'+x.d+'</span><span><b>'+esc(x.l)+'</b> · '+x.t+' / '+x.m+'</span></div>'}).join("")+'</div>';
+h+='<div class="c2"><div class="k">IMTIHON QOIDALARI</div><p style="margin:8px 0 0;line-height:1.5">20 ta savol, 20 daqiqa. Uch boʻlim: Lugʻat, Nahv va Reading (2 ta matn, har biriga 3 ta savol). Savollar A1 dan C1 gacha. Natija 100 ballik tizimda beriladi. Vaqt tugasa, javob berilmaganlari xato hisoblanadi. Bu Tanal uslubidagi mashq, rasmiy imtihon emas.</p></div><div class="row"><button class="btn p" data-a="cefr">'+(c?'Qayta topshirish':'Imtihonni boshlash')+'</button></div>';show(h,1)}
+A.cefr=function(){S.tab="cefr";show('<div class="top"><button class="link" data-a="tab" data-v="cefr">‹ Orqaga</button></div><h1>Imtihon</h1><p class="sub">Imtihon savollari tayyorlanmoqda…</p>',0);
+try{claude.use("sample").then(function(sm){if(!sm)throw 0;S.sm=sm;var tp=sh(TP).slice(0,6).join(", "),seen=(D.seen||[]).slice(-45).join(" | ");return sm.json('Arab tili (fusha) bilimini baholovchi, Tanal (TOEFL/IELTS uslubidagi xalqaro arab tili imtihoni) kabi 20 ta YANGI test savoli tuz, oʻzbek tilida soʻzlashuvchi uchun. 5 daraja (A1, A2, B1, B2, C1), har darajadan 4 tadan, osondan qiyinga. Har savolda "s" maydoni: "lug" (lugʻat), "nahv" (grammatika) yoki "oqish" (oʻqib tushunish); 7 ta lug, 7 ta nahv va 6 ta oqish (Reading). Tartib: avval 14 ta lug va nahv savoli osondan qiyinga, oxirida Reading boʻlimi: 2 ta uzun matn (har biri 5-7 gaplik, 1-matn A2-B1, 2-matn B2-C1 darajada), har matnga 3 tadan savol, ularning hammasida "p" maydoniga oʻsha matnni bir xil yoz va savollarni matn boʼyicha ketma-ket ber. Savollar matn mazmunini tekshirsin. Tasodifiy kod: '+Math.random().toString(36).slice(2,8)+'. Mavzular: '+tp+'. Har safar boshqacha, original savollar tuz. Quyidagilarni va ularga oʻxshashlarini takrorlama: '+(seen||"yoʻq")+'. Savol va variantlar arabcha (harakatlari bilan), savol oxirida qavs ichida qisqa oʻzbekcha izoh boʼlishi mumkin. Har savolda aniq bitta toʻgʻri javob boʼlsin. Faqat JSON qaytar: [{"l":"A1","s":"lug","q":"...","p":"","o":["a","b","c","d"],"a":0}], a toʻgʻri variant indeksi (0 dan 3 gacha), toʻgʻri javob oʻrni aralash boʼlsin.')}).then(function(r){if(!r||!r.length)throw 0;S.ct={q:r.slice(0,20),i:0,a:[],t0:Date.now()};D.seen=(D.seen||[]).concat(S.ct.q.map(function(x){return String(x.q).slice(0,70)})).slice(-60);sv();ctq()}).catch(cerr)}catch(e){cerr()}};
+function ctq(){var c=S.ct,w=c.q[c.i];if(!w)return cfin();S.cp=null;var left=Math.max(0,TT-Math.floor((Date.now()-c.t0)/1000));
+show('<div class="top"><button class="link" data-a="tab" data-v="cefr">‹ Chiqish</button><span class="meta"><b id="tm">'+tmf(left)+'</b> · '+(c.i+1)+' / '+c.q.length+'</span></div>'+bar(c.i/c.q.length*100)+'<div class="meta" style="margin:8px 0">'+(SK[w.s]||"Savol")+'</div><div class="q">'+(w.p?'<div class="ar" style="font-size:20px;line-height:1.9;margin-bottom:12px">'+esc(w.p)+'</div>':'')+'<div class="ar" style="font-size:24px;line-height:1.7">'+esc(w.q)+'</div></div>'+w.o.map(function(x,j){return '<button class="opt arb" data-a="cpick" data-v="'+j+'">'+esc(x)+'</button>'}).join("")+'<div id="nx"></div>',0);
+clearInterval(TI);TI=setInterval(function(){var e=document.getElementById("tm");if(!e||!S.ct){clearInterval(TI);return}var l=Math.max(0,TT-Math.floor((Date.now()-S.ct.t0)/1000));e.textContent=tmf(l);if(l<=0){clearInterval(TI);cfin()}},1000)}
+function cfin(){clearInterval(TI);var c=S.ct,sc={},nq={},ss={},wr=[],tot=0,l="A1 dan past",go=true;c.q.forEach(function(w,i){var ok=c.a[i]==w.a,k=w.s||"lug";nq[w.l]=(nq[w.l]||0)+1;sc[w.l]=(sc[w.l]||0)+(ok?1:0);ss[k]=ss[k]||[0,0];ss[k][1]++;if(ok){tot++;ss[k][0]++}else wr.push(w.l+"/"+k)});
+LV.forEach(function(v){if(go&&nq[v]&&(sc[v]||0)>=Math.ceil(nq[v]*0.6))l=v;else go=false});
+var n=c.q.length,p=Math.round(tot/n*100);show('<h1>Imtihon</h1><p class="sub">Natija tayyorlanmoqda…</p>',0);var d={l:l,d:today(),tot:tot,max:n,p100:p,sc:sc,nq:nq,ss:ss,n:""};
+S.sm("Arab tili imtihoni natijasi: "+p+" / 100 ball, daraja "+l+". Boʻlimlar (toʻgʻri/jami): "+JSON.stringify(ss)+". Xato qilingan savollar (daraja/boʻlim): "+wr.join(", ")+". Oʻzbek tilida 3-4 ta qisqa gap bilan baho ber va nimani takrorlash kerakligini ayt. Ortiqcha format ishlatma.").then(function(r){d.n=(typeof r=="string"?r:((r&&r.text)||"")).trim()}).catch(function(){}).then(function(){if(!d.n)d.n=p+" / 100 ball. "+(wr.length?"Xatolar: "+wr.join(", ")+".":"Hammasi toʻgʻri!");D.cefr=d;D.ch=(D.ch||[]).concat([{l:d.l,d:d.d,t:tot,m:n}]).slice(-8);sv();A.tab("cefr")})}
+SK.oqish="Reading · القراءة";SK.lug="Lugʻat · المفردات";SK.nahv="Nahv · القواعد";
+draw();cinit();
+</script>
+</body>
+</html>
